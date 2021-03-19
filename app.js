@@ -21,6 +21,8 @@ console.log('=======');
 
 // 4
 const ginosEast = document.querySelector(`div`);
+// Or
+// const ginosEast = document.querySelector(`#ginos`);
 console.dir(ginosEast);
 
 console.log('=======');
@@ -39,6 +41,8 @@ h1.innerText = `Matt's Favorite Places To Eat In Sweet Home Chicago!`;
 
 // 7a
 const others = document.getElementById(`others`);
+// Or
+// const others = document.querySelector(`#others`);
 
 // 7b
 others.innerHTML = `<h3>Other favorites</h3>`;
@@ -62,9 +66,10 @@ const h4 = document.createElement(`h4`);
 h4.innerText = `CHICAGO: A great place to eat!`;
 
 // 11c
-// Kept getting error, will come back and investigate
-// const newH4 = document.querySelector(`h4`);
-// newH4.prepend(h4);
+const body = document.querySelector(`body`);
+body.prepend(h4);
+// Or
+// document.querySelector(`body`).prepend(h4);
 
 // 12a
 const h5 = document.createElement(`h5`);
@@ -76,9 +81,40 @@ h5.innerText = `See you in the Windy City Sometime!`;
 aTag.insertAdjacentElement(`afterend`, h5);
 
 // 13
-const jays = document.querySelector(`ul li`);
+const jays = document.querySelector(`li`);
 jays.remove();
+// Or
+// document.querySelector(`li`).remove();
 
 // BONUS 
 
 // 14a
+const divs = document.querySelectorAll(`div`);
+// Or
+// const divs = document.getElementsByTagName(`div`);
+
+// 14b
+for (div of divs){
+    div.classList.toggle(`background`);
+}
+
+// 15a
+const hungry = [
+    "Thanks",
+    "A",
+    "Lot",
+    "Now",
+    "I",
+    "Am",
+    "Hungry"
+];
+
+// 15b
+for (word of hungry){
+    // document.querySelector(`body`).append(document.createElement(`span`).innerText = `${word}`);
+    // Or
+    const body1 = document.querySelector(`body`);
+    const span = document.createElement(`span`);
+    span.innerText = `${word} `;
+    body1.append(span);
+}
